@@ -1,7 +1,6 @@
 package Hilos;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -14,19 +13,20 @@ public class CounterThread extends Thread {
         super();
         this.name = name;
     }
+    @Override
     public void run(){
         int count = 0;
         while (true){
             try {
                 sleep(10);
             } catch (InterruptedException ex) {
-                Logger.getLogger(CounterThread.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
-            if(count == 100){
+            if(count == 100)
                 count = 0;
-                System.out.println(name+":"+ count++);
+             System.out.println(name+":"+ count++);
                 
-            }
+            
         }
     }
     
